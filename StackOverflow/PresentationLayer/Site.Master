@@ -1,0 +1,86 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="StackOverflow.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title> StackOverflow</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+          <div class="container-fluid d-flex justify-content-around">
+            <a class="navbar-brand" href="./">StackOverflow</a>
+              <div class="d-flex w-50 gap-1">
+                  <input id="lblSearch" class="form-control" type="search" placeholder="Search" aria-label="Search">
+                  <button id="searchBtn" class="btn btn-outline-primary" type="button">Search</button>
+              </div>
+              <div class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                  <div runat="server" id="guestBtns" class="guest" >
+                      <asp:button runat="server" id="LoginBtn" CssClass="btn btn-primary btn-block" type="button" onclick="movetoLogin" Text="Log In"/>
+                      <asp:button runat="server" id="SignupBtn" CssClass="btn btn-primary btn-block" type="button" onclick="movetoSignup" Text="Sign Up"/>
+                  </div>
+                  <div runat="server" id="UserBtn" class="loggedin">
+                      <asp:button runat="server" id="LogOutBtn" CssClass="btn btn-primary btn-block" type="button" onclick="Logout" Text="LogOut"/>
+                  </div>
+              </div>
+            </div>
+        </nav>
+
+        <div class="d-flex flex-row justify-content-end align-items-center">
+            <div class="d-flex flex-column p-3 text-white bg-dark vh-100 fixed-top" style="width: 20%;">
+            <a href="./" class="d-flex align-items-center text-white text-decoration-none">
+                <span class="fs-4">StackOverflow</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+              <li class="nav-item">
+                <a href="./" class="nav-link active" aria-current="page">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="./" class="nav-link text-white">
+                  Questions
+                </a>
+              </li>
+              <li>
+                <a href="./MyQuestions.aspx" class="nav-link text-white">
+                  My Questions
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  Tags
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  Users
+                </a>
+              </li>
+              <li>
+                 <a href="./PostQuestion.aspx" class="btn btn-success">Ask Question</a>
+              </li>
+            </ul>
+            <hr>
+        </div>
+        
+            <div class="sticky-right" style="width: 80%";>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+        
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="../Scripts/app.js"></script>
+</body>
+</html>
